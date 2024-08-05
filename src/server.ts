@@ -16,7 +16,7 @@ app.use(express.json());
 app.use("/api/notes", notesRoutes);
 // 2:02:56
 app.use((rqe, res, next) => {
-  next(createHttpError(404, "Enpoint not found"));
+  next(createHttpError(404, "Enpoint not found!"));
 });
 
 app.use((error: unknown, req: Request, res: Response, next: NextFunction) => {
