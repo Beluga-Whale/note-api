@@ -5,9 +5,18 @@ import express, { NextFunction, Request, Response } from "express";
 import notesRoutes from "./routes/note.route";
 import morgan from "morgan";
 import createHttpError, { isHttpError } from "http-errors";
-
+import cors from "cors";
 const app = express();
 const port = env.PORT;
+
+const corsOptions = {
+  origin: "http://localhost:5173", // Vite dev server
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 
 app.use(morgan("dev"));
 
